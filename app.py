@@ -4,6 +4,7 @@ import plotly as py
 from Que1 import expDis, workType, expPie, Salary, companyLoc, employLoc, remotePie, overseaDis
 from Que3 import companySize, salaryDiffCom, diffExpinCom, jobTitleinEn
 from Que5 import countsMeanSalary, Pie2020, Pie2021, Pie2022
+from Que2 import coMap,salaryExp,salaryCompany,salaryEploy
 
 app = Flask(__name__)  # 初始化网页对象
 
@@ -12,7 +13,6 @@ app = Flask(__name__)  # 初始化网页对象
 @app.route('/')
 def index():
     return render_template("index.html")  # 写入var中传入前端页面，render进行符号解析，把var进行替换
-
 
 @app.route('/que1')
 def Que1():
@@ -43,7 +43,19 @@ def Que1():
 
 @app.route('/que2')
 def Que2():
-    return render_template("score.html")  # 写入var中传入前端页面，render进行符号解析，把var进行替换
+    fig = coMap.getColMap()
+    fig2 = salaryExp.getSalryExp()
+    fig3 = salaryCompany.getSalaryinDiffCom()
+    fig4 = salaryEploy.getSalaryinEmp()
+    graphJSON = json.dumps(fig, cls=py.utils.PlotlyJSONEncoder)
+    graphJSON2 = json.dumps(fig2, cls=py.utils.PlotlyJSONEncoder)
+    graphJSON3 = json.dumps(fig3, cls=py.utils.PlotlyJSONEncoder)
+    graphJSON4 = json.dumps(fig4, cls=py.utils.PlotlyJSONEncoder)
+    return render_template("que2.html", graphJSON=graphJSON,
+                           graphJSON2=graphJSON2,
+                           graphJSON3=graphJSON3,
+                           graphJSON4=graphJSON4,
+                           )  # 写入var中传入前端页面，render进行符号解析，把var进行替换
 
 @app.route('/que3')
 def Que3():
@@ -62,6 +74,9 @@ def Que3():
                            graphJSON3=graphJSON3,
                            graphJSON4=graphJSON4
                            )  # 写入var中传入前端页面，render进行符号解析，把var进行替换
+
+@app.route('/que4')
+def Que4():
 
 @app.route('/que5')
 def Que5():

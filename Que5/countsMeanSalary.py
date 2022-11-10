@@ -14,11 +14,11 @@ def getCountsSalary():
     df.drop(columns=['Unnamed: 0', 'salary'], inplace=True)
 
     #进行分类
-    temp = df.groupby(['work_year'])['salary_in_usd'].agg(['count', 'mean'])
+    temp = df.groupby(['work_year'])['salary_in_usd'].agg(['count', 'median'])
     # %%
     temp = pd.DataFrame(temp)
     temp.reset_index(inplace=True)
-    col = np.array(temp['mean'])
+    col = np.array(temp['median'])
     col2 = np.array(temp['count'])
     trace1 = go.Bar(
         x=['2020', '2021', '2022'],
@@ -42,7 +42,7 @@ def getCountsSalary():
     fig.update_layout(
                       template = 'plotly_dark',
                       font = dict(size=13,family="Franklin Gothic"),
-                      title = 'Employee Counts and Mean Salary During the Epidemic',
+                      title = 'Employee Counts and Median Salary During the Epidemic',
                       title_font_family = "Franklin Gothic",
                     )
     return fig

@@ -12,7 +12,7 @@ import pandas as pd
 
 def getColMap():
     # 对每一列的值进行编码
-    csv_path = '../ds_salaries.csv'
+    csv_path = 'ds_salaries.csv'
     df = pd.read_csv(csv_path)
     df.drop(columns=['Unnamed: 0', 'salary'], inplace=True)
 
@@ -47,12 +47,11 @@ def getColMap():
         colorscale='Viridis',
         showscale=True
     )
-    fig.update_layout(
-        title='Employee Correlation Of Features'
-    )
     fig.update_xaxes(side="bottom")
-
-    # 字体大小设置
-    for i in range(len(fig.layout.annotations)):
-        fig.layout.annotations[i].font.size = 12
+    fig.update_layout(
+            font=dict(size=15, family="Franklin Gothic"),
+            title='Employee Correlation Of Features',
+            title_font_family="Franklin Gothic",
+            title_font_size=24
+    )
     return fig
