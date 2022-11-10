@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <!--Font Awesome-->
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!--jQuery-->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <!--ssMenu CSS-->
+    <link rel="stylesheet" href="/static/jq/css/ss-menu.css">
+  <!--ssMenu JS-->
+    <script src="/static/jq/js/jquery.ss.menu.js"></script>
+<!--Start Side Sticky Menu-->
+<!--End Side Sticky Menu-->
+ <input  type="button" name="Submit" value="提交"  onclick="javascript:onTopClick();" />
+
+</body>
+</html>
+<script src="static/jq/js/jquery.ss.menu.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function(){
+        $(".ss-menu").ssMenu();
+    });
+ </script>
+    <script>
+        function onTopClick() {
+             window.location.hash = "#abc";
+           }
+    </script>
