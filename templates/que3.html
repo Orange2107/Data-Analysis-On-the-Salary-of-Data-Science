@@ -110,6 +110,12 @@
                             <div id="graph-4" data-aos="fade-up"></div>
                         </div>
                     </div>
+            <div class="col-lg-12 col-md-6 text-center " data-aos="fade-up">
+                        <div class="count-box">
+                             <div id="g5" class="target-fix"></div>
+                            <div id="graph-5" data-aos="fade-up"></div>
+                        </div>
+                    </div>
         </div>
         </section>
   </div>
@@ -162,6 +168,13 @@
                 var graphs4 = {{graphJSON4 | safe}};
                 Plotly.plot('graph-4',graphs4,{});
             </script>
+   <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+            <script type='text/javascript'>
+                var graphs5 = {{graphJSON5 | safe}};
+                Plotly.plot('graph-5',graphs5,{});
+            </script>
+
+   <!--菜单栏-->
   <script src="static/jq/js/jquery.ss.menu.js"></script>
             <script type="text/javascript">
                 $(document).ready(function(){

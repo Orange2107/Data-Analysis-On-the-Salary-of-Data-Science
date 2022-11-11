@@ -2,9 +2,9 @@ from flask import Flask, render_template
 import json
 import plotly as py
 from Que1 import expDis, workType, expPie, Salary, companyLoc, employLoc, remotePie, overseaDis
-from Que3 import companySize, salaryDiffCom, diffExpinCom, jobTitleinEn
+from Que3 import companySize, salaryDiffCom, diffExpinCom, jobTitleinEn, topFiveJob
 from Que5 import countsMeanSalary, Pie2020, Pie2021, Pie2022
-from Que2 import coMap,salaryExp,salaryCompany,salaryEploy
+from Que2 import coMap, salaryExp, salaryCompany, salaryEploy
 
 app = Flask(__name__)  # 初始化网页对象
 
@@ -63,20 +63,24 @@ def Que3():
     fig2 = salaryDiffCom.getSalaryinDiffCom()
     fig3 = diffExpinCom.getDiffExp()
     fig4 = jobTitleinEn.getJobTitle()
+    fig5 = topFiveJob.getTopFive()
     graphJSON = json.dumps(fig1, cls=py.utils.PlotlyJSONEncoder)
     graphJSON2 = json.dumps(fig2, cls=py.utils.PlotlyJSONEncoder)
     graphJSON3 = json.dumps(fig3, cls=py.utils.PlotlyJSONEncoder)
     graphJSON4 = json.dumps(fig4, cls=py.utils.PlotlyJSONEncoder)
+    graphJSON5 = json.dumps(fig5, cls=py.utils.PlotlyJSONEncoder)
 
     return render_template("que3.html",
                            graphJSON=graphJSON,
                            graphJSON2=graphJSON2,
                            graphJSON3=graphJSON3,
-                           graphJSON4=graphJSON4
+                           graphJSON4=graphJSON4,
+                           graphJSON5=graphJSON5
                            )  # 写入var中传入前端页面，render进行符号解析，把var进行替换
 
 @app.route('/que4')
 def Que4():
+    return render_template('que5.html')
 
 @app.route('/que5')
 def Que5():
