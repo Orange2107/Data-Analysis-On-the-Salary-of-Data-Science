@@ -20,7 +20,19 @@ def getColMap():
               "company_size"]
     encoder = LabelEncoder()
     for col in catcol:
+        if col == 'experience_level' and 'company_size':
+            continue
         df[col] = encoder.fit_transform(df[col])
+    df['experience_level'] = df['experience_level'].replace('EN', 0)
+    df['experience_level'] = df['experience_level'].replace('MI', 1)
+    df['experience_level'] = df['experience_level'].replace('SE', 2)
+    df['experience_level'] = df['experience_level'].replace('EX', 3)
+
+    df['company_size'] = df['company_size'].replace('S', 0)
+    df['company_size'] = df['company_size'].replace('M', 1)
+    df['company_size'] = df['company_size'].replace('L', 2)
+
+
 
     # 去除无效列
     df.drop(columns='salary_currency', inplace=True)

@@ -37,7 +37,7 @@ def getSalaryinEmp():
     counts = df.groupby('employee_residence')['salary_in_usd'].agg(['count', 'mean'])
     temp_map = pd.DataFrame(counts)
     temp_map.reset_index(inplace=True)
-    temp_map = temp_map.loc[temp_map['count'] > 6]
+    temp_map = temp_map.loc[temp_map['count'] > 7]
     temp_map = pd.DataFrame.sort_values(temp_map, by='mean')
     areas = temp_map.employee_residence.values.tolist()
 
