@@ -16,7 +16,7 @@ def getColMap():
     df = pd.read_csv(csv_path)
     df.drop(columns=['Unnamed: 0', 'salary'], inplace=True)
 
-    catcol = ["experience_level", "employment_type", "job_title", "employee_residence", "remote_ratio", "company_location",
+    catcol = ["experience_level", "employment_type", "job_title", "remote_ratio", "company_location",
               "company_size"]
     encoder = LabelEncoder()
     for col in catcol:
@@ -45,7 +45,7 @@ def getColMap():
     dfArr = np.around(dfArr, 3)
 
     # 两个轴，可以任意指定
-    xNames = ["Work Year", "Experience Level", "Employment Type", "Job Title", 'Salary', "Employee Residence",
+    xNames = ["Work Year", "Experience Level", "Employment Type", "Job Title", 'Salary',
               "Remote Ratio", "Company Location", "Company Size"]
 
     # 显示的文本内容
