@@ -189,7 +189,7 @@ def getData():
 
     # df = pd.get_dummies(df, columns=['company_size', 'employment_type', 'experience_level', 'work_year', 'salary_currency','company_location', 'company_size'])
     df = pd.get_dummies(df, columns=['company_location', 'employee_residence', 'experience_level'])
-
+    # 111维度
     x = df.drop('salary_in_usd', axis=1)
 
     # salary归一化
